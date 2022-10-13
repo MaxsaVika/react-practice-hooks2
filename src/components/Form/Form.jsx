@@ -7,15 +7,20 @@ export default function Form() {
   const [mail, setMail] = useState('');
   const [users, setUsers] = useState([]);
   const options = { name: setName, phone: setPhone, mail: setMail };
+
   const onSubmit = e => {
     e.preventDefault();
     const user = { name, phone, mail };
+
     setUsers([user, ...users]);
+    console.log(users);
+
   };
 
   const onChange = ({ target: { name, value } }) => {
     options[name](value);
   };
+
   return (
     <form action="" onSubmit={onSubmit}>
       <input
